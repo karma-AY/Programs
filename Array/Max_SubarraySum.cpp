@@ -4,6 +4,7 @@ using namespace std;
 
 void bruteforce(int *arr, int n);
 void optimized(int *arr, int n);
+void kadanesalg(int *arr, int n);
 int main() 
 {
     int n;
@@ -17,6 +18,7 @@ int main()
     }
     bruteforce(arr,n);
     optimized(arr,n);
+    kadanesalg(arr,n);
   return 0;
 }
 void bruteforce(int *arr, int n)
@@ -57,4 +59,22 @@ void optimized(int *arr, int n)
         }
     }
     cout << "The max sum is:(optimized)" << max << endl;
+}
+void kadanesalg(int *arr, int n)
+{
+    int max = INT32_MIN;
+    int sum=0;
+    for(int i=0; i<n; i++)
+    {
+        sum += arr[i];
+        if(sum>max)
+        {
+            max = sum;
+        }
+        if(sum<0)
+        {
+            sum=0;
+        }
+    }
+    cout << "The max sum is:(kadanes)" << max << endl;
 }
