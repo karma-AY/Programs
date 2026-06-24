@@ -1,9 +1,8 @@
 #include <iostream>
 using namespace std;
-void maxprofit(int *price, int n)
-{
+void maxprofit(int *price, int n){
     int bestbuy[100000];
-    bestbuy[0]=INT_MAX;   
+    bestbuy[0]=INT_MAX;
     for(int i=1;i<n;i++)
     {
        bestbuy[i] = min(bestbuy[i-1],price[i-1]);
